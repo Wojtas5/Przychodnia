@@ -1,0 +1,14 @@
+Przychodnia 3, 4 lub 5 gabinetów z 10 lekarzami, jeden urolog, kardiolog, 2 pulmonologów, 3 chirurgów, itd. przyjmują w różne dni, w różnych gabinetach
+Klienci korzystający z tego systemu mogą rezerwować terminy, termin przypisany jest następnie do lekarza
+Dostępne terminy są wprowadzone wcześniej przez np. pielęgniarkę, aby klienci mogli je rezerwować
+
+Jeden diagram przypadków użycia na cały zespół
+Następnie do każdego przypadku użycia - diagram czynności
+
+Zarządzanie terminami - dodanie akcji wprowadzania nowych terminów, zamiast fork node to decision
+Przeglądanie wolnych terminów - dodać wypisanie czegoś na ekran
+Zarządanie rezerwacją - decision node
+
+--- Diagram klas ---
+Musi być zrobiony jeden dla całego systemu (przychodni)
+Klasy są tworzone pod kątem tego systemu a nie funkcjonalności poszczególnych elementów (nie pisać co może samochód np. jechać, tylko utworzyć metody pod kątem sklepu np. dodaj nowy samochód do sklepu itd.)
