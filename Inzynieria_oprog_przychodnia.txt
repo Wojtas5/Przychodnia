@@ -12,3 +12,15 @@ Zarządanie rezerwacją - decision node
 --- Diagram klas ---
 Musi być zrobiony jeden dla całego systemu (przychodni)
 Klasy są tworzone pod kątem tego systemu a nie funkcjonalności poszczególnych elementów (nie pisać co może samochód np. jechać, tylko utworzyć metody pod kątem sklepu np. dodaj nowy samochód do sklepu itd.)
+
+--- Diagram sekwencji ---
+Diagramy sekwencji opisują interakcję pomiędzy klasami. Interakcje te są opisane przez diagram przypadków użycia.
+Tworzymy nowy diagram sekwencji klikając na tą strzałeczke obok przypadku użycia (tak jak diagramy czynności)
+
+Tworząc diagram sekwencji należy dodać do widoku "Model Explorer" tam są konkretne itemy z diagramu przypadków użycia i diagramu klas,
+trzeba je stamtąd wyciągnąć i użyć w diagramie sekwencji aby nowe elementy diagramów sekwencji były powiązane z elementami diagramu klas.
+
+Jeśli nie ma jakiejś metody a podczas tworzenia diagramu sekwencji zauważyliśmy że będzie potrzebna, można ją utowrzyć poprzez kliknięcie
+prawym przyciskiem myszki na nowo utworzoną strzałkę na diagramie sekwencji -> Select operation -> Create operation... -> tutaj podajemy nazwe
+metody i klikamy OK. Nowa metoda zostanie utworzona i dodana do diagramu sekwencji oraz diagramu klas do odpowieniej klasy, należy jeszcze dodać
+parametry (o ile potrzebne).
