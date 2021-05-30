@@ -1,4 +1,4 @@
-#include "design\Pacjent.h"
+#include "Pacjent.h"
 
 void Pacjent::rejestracja()
 {

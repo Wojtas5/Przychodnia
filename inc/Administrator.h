@@ -1,6 +1,8 @@
 #ifndef ADMINISTRATOR_H
 #define ADMINISTRATOR_H
 
+#include "Uzytkownik.h"
+
 class Administrator : Uzytkownik
 {
 

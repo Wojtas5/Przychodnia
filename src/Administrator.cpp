@@ -1,4 +1,4 @@
-#include "design\Administrator.h"
+#include "Administrator.h"
 
 void Administrator::dodaj_pielegniarke()
 {

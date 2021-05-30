@@ -1,6 +1,9 @@
 #ifndef PACJENT_H
 #define PACJENT_H
 
+#include <Uzytkownik.h>
+#include <Termin.h>
+
 class Pacjent : Uzytkownik
 {
 private:

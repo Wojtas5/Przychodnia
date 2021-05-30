@@ -1,6 +1,6 @@
-#include "design\Lekarz.h"
+#include "Lekarz.h"
 
-void Lekarz::potwierdz_rezerwacje(termin ter)
+void Lekarz::potwierdz_rezerwacje(Termin ter)
 {
 	// TODO - implement Lekarz::potwierdz_rezerwacje
 	throw "Not yet implemented";

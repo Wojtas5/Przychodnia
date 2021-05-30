@@ -1,4 +1,4 @@
-#include "design\Termin.h"
+#include "Termin.h"
 
 void Termin::setKoszt()
 {
