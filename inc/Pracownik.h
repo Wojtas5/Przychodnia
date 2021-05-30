@@ -1,6 +1,8 @@
 #ifndef PRACOWNIK_H
 #define PRACOWNIK_H
 
+#include <Uzytkownik.h>
+
 class Pracownik : Uzytkownik
 {
 private:

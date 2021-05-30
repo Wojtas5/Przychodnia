@@ -1,4 +1,4 @@
-#include "design\Uzytkownik.h"
+#include "Uzytkownik.h"
 
 void Uzytkownik::setHaslo()
 {

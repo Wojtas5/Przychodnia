@@ -1,4 +1,4 @@
-#include "design\WynikWizyty.h"
+#include "WynikWizyty.h"
 
 void WynikWizyty::wyswietlWynik()
 {

@@ -1,6 +1,10 @@
 #ifndef UZYTKOWNIK_H
 #define UZYTKOWNIK_H
 
+#include <string>
+
+using namespace std;
+
 class Uzytkownik
 {
 private:

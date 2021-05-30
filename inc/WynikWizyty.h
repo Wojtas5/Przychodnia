@@ -1,6 +1,10 @@
 #ifndef WYNIKWIZYTY_H
 #define WYNIKWIZYTY_H
 
+#include <string>
+
+using namespace std;
+
 class WynikWizyty
 {
 private:
