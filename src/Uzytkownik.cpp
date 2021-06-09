@@ -1,55 +1,87 @@
+#include <iostream>
 #include "Uzytkownik.h"
 
-void Uzytkownik::setHaslo()
+Uzytkownik::Uzytkownik(string login, string haslo, string imie, string nazwisko, 
+					   string adres, string pesel, string numer)
 {
-	// TODO - implement Uzytkownik::setHaslo
-	throw "Not yet implemented";
+	this->login = login;
+	this->haslo = haslo;
+	this->imie = imie;
+	this->nazwisko = nazwisko;
+	this->adres = adres;
+	this->PESEL = pesel;
+	this->numer_telefonu = numer;
+	this->zalogowany = false;
 }
 
-void Uzytkownik::setLogin()
+bool Uzytkownik::zaloguj(string login, string haslo)
 {
-	// TODO - implement Uzytkownik::setLogin
-	throw "Not yet implemented";
-}
+	bool retval = false;
 
-void Uzytkownik::zaloguj(string login, string haslo)
-{
-	// TODO - implement Uzytkownik::zaloguj
-	throw "Not yet implemented";
+	if (this->login == login && this->haslo == haslo)
+	{
+		zalogowany = true;
+		retval = true;
+
+		cout << "Pomyslnie zalogowano " << imie << " " << nazwisko << endl;
+	}
+	else if (this->login != login)
+	{
+		cout << "Wprowadzono bledny login " << login << " dla " << imie << " " << nazwisko << endl;
+	}
+	else if (this->haslo != haslo)
+	{
+		cout << "Wprowadzono bledne haslo" << " dla " << imie << " " << nazwisko << endl;
+	}
+
+	return retval;
 }
 
 void Uzytkownik::wyloguj()
 {
-	// TODO - implement Uzytkownik::wyloguj
-	throw "Not yet implemented";
+	if (this->zalogowany == true)
+	{
+		this->zalogowany = false;
+
+		cout << "Uzytkownik wylogowany pomyslnie" << endl;
+	}
+	else
+	{
+		cout << "Uzytkownik nie jest zalogowany" << endl;
+	}
 }
 
-void Uzytkownik::setImie()
+void Uzytkownik::setHaslo(string haslo)
 {
-	// TODO - implement Uzytkownik::setImie
-	throw "Not yet implemented";
+	this->haslo = haslo;
 }
 
-void Uzytkownik::setNazwisko()
+void Uzytkownik::setLogin(string login)
 {
-	// TODO - implement Uzytkownik::setNazwisko
-	throw "Not yet implemented";
+	this->login = login;
 }
 
-void Uzytkownik::setAdres()
+void Uzytkownik::setImie(string imie)
 {
-	// TODO - implement Uzytkownik::setAdres
-	throw "Not yet implemented";
+	this->imie = imie;
 }
 
-void Uzytkownik::setPesel()
+void Uzytkownik::setNazwisko(string nazwisko)
 {
-	// TODO - implement Uzytkownik::setPesel
-	throw "Not yet implemented";
+	this->nazwisko = nazwisko;
 }
 
-void Uzytkownik::setNumer_telefonu()
+void Uzytkownik::setAdres(string adres)
 {
-	// TODO - implement Uzytkownik::setNumer_telefonu
-	throw "Not yet implemented";
+	this->adres = adres;
+}
+
+void Uzytkownik::setPesel(string pesel)
+{
+	this->PESEL = pesel;
+}
+
+void Uzytkownik::setNumer_telefonu(string numer)
+{
+	this->numer_telefonu = numer;
 }
