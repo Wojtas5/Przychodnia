@@ -2,8 +2,9 @@
 #define LEKARZ_H
 
 #include <string>
-#include <Pracownik.h>
-#include <Termin.h>
+#include "Pracownik.h"
+#include "Termin.h"
+#include "Date.h"
 
 using namespace std;
 
