@@ -33,6 +33,9 @@
     <ClCompile Include="src\WynikWizyty.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pielegniarka.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Administrator.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\WynikWizyty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pielegniarka.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
