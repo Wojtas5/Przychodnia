@@ -33,7 +33,13 @@
     <ClCompile Include="src\WynikWizyty.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Pielegniarka.cpp">
+    <ClCompile Include="src\Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Pielegniarka.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,7 +65,10 @@
     <ClInclude Include="inc\WynikWizyty.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Pielegniarka.h">
+    <ClInclude Include="inc\Date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Pielegniarka.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

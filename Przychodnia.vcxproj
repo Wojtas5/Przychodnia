@@ -100,22 +100,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Administrator.cpp" />
+    <ClCompile Include="src\Date.cpp" />
     <ClCompile Include="src\Lekarz.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Pacjent.cpp" />
+    <ClCompile Include="src\Pielegniarka.cpp" />
     <ClCompile Include="src\Termin.cpp" />
     <ClCompile Include="src\Uzytkownik.cpp" />
     <ClCompile Include="src\WynikWizyty.cpp" />
-    <ClCompile Include="Pielegniarka.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Administrator.h" />
+    <ClInclude Include="inc\Date.h" />
     <ClInclude Include="inc\Lekarz.h" />
     <ClInclude Include="inc\Pacjent.h" />
+    <ClInclude Include="inc\Pielegniarka.h" />
     <ClInclude Include="inc\Pracownik.h" />
     <ClInclude Include="inc\Termin.h" />
     <ClInclude Include="inc\Uzytkownik.h" />
     <ClInclude Include="inc\WynikWizyty.h" />
-    <ClInclude Include="Pielegniarka.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

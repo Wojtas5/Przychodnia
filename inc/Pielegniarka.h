@@ -2,6 +2,7 @@
 #define PIELEGNIARKA_H
 
 #include "Pracownik.h"
+#include "Date.h"
 
 class Pielegniarka : public Pracownik
 {

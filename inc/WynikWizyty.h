@@ -2,6 +2,7 @@
 #define WYNIKWIZYTY_H
 
 #include <string>
+#include "Date.h"
 
 using namespace std;
 
