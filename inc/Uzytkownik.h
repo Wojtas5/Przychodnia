@@ -15,25 +15,28 @@ private:
 	string adres;
 	string PESEL;
 	string numer_telefonu;
+	bool zalogowany;
 
 public:
-	void setHaslo();
-
-	void setLogin();
-
-	void zaloguj(string login, string haslo);
+	Uzytkownik(string login, string haslo, string imie, string nazwisko, string adres, string pesel, string numer);
+	
+	bool zaloguj(string login, string haslo);
 
 	void wyloguj();
 
-	void setImie();
+	void setHaslo(string haslo);
 
-	void setNazwisko();
+	void setLogin(string login);
 
-	void setAdres();
+	void setImie(string imie);
 
-	void setPesel();
+	void setNazwisko(string nazwisko);
 
-	void setNumer_telefonu();
+	void setAdres(string adres);
+
+	void setPesel(string pesel);
+
+	void setNumer_telefonu(string numer);
 };
 
 #endif
