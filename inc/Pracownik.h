@@ -3,7 +3,7 @@
 
 #include <Uzytkownik.h>
 
-class Pracownik : Uzytkownik
+class Pracownik : public Uzytkownik
 {
 private:
 	int id_pracownika;

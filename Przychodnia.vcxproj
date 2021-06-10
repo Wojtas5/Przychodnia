@@ -102,6 +102,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Pracownik.cpp" />
     <ClCompile Include="src\Administrator.cpp" />
     <ClCompile Include="src\Date.cpp" />
     <ClCompile Include="src\Lekarz.cpp" />
