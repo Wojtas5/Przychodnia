@@ -37,6 +37,8 @@ public:
 	void setPesel(string pesel);
 
 	void setNumer_telefonu(string numer);
+
+	bool getZalogowany();
 };
 
 #endif

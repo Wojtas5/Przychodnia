@@ -85,3 +85,8 @@ void Uzytkownik::setNumer_telefonu(string numer)
 {
 	this->numer_telefonu = numer;
 }
+
+bool Uzytkownik::getZalogowany()
+{
+	return this->zalogowany;
+}
