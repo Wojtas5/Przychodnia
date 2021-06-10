@@ -32,7 +32,7 @@ void Pacjent::rejestracja()
 	cout << "podaj numer telefonu" << endl;
 	cin >> temp;
 	this->setNumer_telefonu(temp);
-
+	this->wygenerujNumer_pacjenta(); 
 	this->setZarejestrowany();
 }
 
