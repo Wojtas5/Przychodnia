@@ -1,23 +1,54 @@
+#include <iostream>
 #include "Pacjent.h"
+
+int Pacjent::licznik_pacjentow = 0;
+
+Pacjent::Pacjent()
+{
+	++(this->licznik_pacjentow);
+}
 
 void Pacjent::rejestracja()
 {
-	// TODO - implement Pacjent::rejestracja
-	throw "Not yet implemented";
+	string temp;
+	cout << "podaj login" << endl;
+	cin >> temp;
+	this->setLogin(temp);
+	cout << "podaj haslo" << endl;
+	cin >> temp;
+	this->setHaslo(temp);
+	cout << "podaj imie" << endl;
+	cin >> temp;
+	this->setImie(temp);
+	cout << "podaj nazwisko" << endl;
+	cin >> temp;
+	this->setNazwisko(temp);
+	cout << "podaj adres" << endl;
+	cin >> temp;
+	this->setAdres(temp);
+	cout << "podaj pesel" << endl;
+	cin >> temp;
+	this->setPesel(temp);
+	cout << "podaj numer telefonu" << endl;
+	cin >> temp;
+	this->setNumer_telefonu(temp);
+	this->wygenerujNumer_pacjenta(); 
+	this->setZarejestrowany();
 }
 
 void Pacjent::wygenerujNumer_pacjenta()
 {
-	// TODO - implement Pacjent::wygenerujNumer_pacjenta
-	throw "Not yet implemented";
+	this->numer_pacjenta = this->licznik_pacjentow;
 }
 
 void Pacjent::setZarejestrowany()
 {
-	// TODO - implement Pacjent::setZarejestrowany
-	throw "Not yet implemented";
+	this->zarejestrowany = true;
 }
-
+bool Pacjent::getZarejestrowany()
+{
+	return this->zarejestrowany;
+}
 void Pacjent::zarezerwuj_termin(Termin termin)
 {
 	// TODO - implement Pacjent::zarezerwuj_termin
