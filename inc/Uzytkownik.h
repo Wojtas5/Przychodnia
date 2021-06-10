@@ -18,6 +18,8 @@ private:
 	bool zalogowany;
 
 public:
+	Uzytkownik();
+
 	Uzytkownik(string login, string haslo, string imie, string nazwisko, string adres, string pesel, string numer);
 	
 	bool zaloguj(string login, string haslo);
