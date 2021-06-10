@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Uzytkownik.h"
 
+Uzytkownik::Uzytkownik()
+{}
+
 Uzytkownik::Uzytkownik(string login, string haslo, string imie, string nazwisko, 
 					   string adres, string pesel, string numer)
 {

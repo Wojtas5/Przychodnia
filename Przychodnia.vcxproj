@@ -102,13 +102,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Pracownik.cpp" />
     <ClCompile Include="src\Administrator.cpp" />
     <ClCompile Include="src\Date.cpp" />
     <ClCompile Include="src\Lekarz.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Pacjent.cpp" />
     <ClCompile Include="src\Pielegniarka.cpp" />
+    <ClCompile Include="src\Pracownik.cpp" />
     <ClCompile Include="src\Termin.cpp" />
     <ClCompile Include="src\Uzytkownik.cpp" />
     <ClCompile Include="src\WynikWizyty.cpp" />
