@@ -2,9 +2,9 @@
 #define PACJENT_H
 
 #include <Uzytkownik.h>
-#include <Termin.h>
-
-class Pacjent : Uzytkownik
+//#include <Termin.h>
+class Termin;
+class Pacjent : public Uzytkownik
 {
 private:
 	int numer_pacjenta;

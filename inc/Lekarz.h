@@ -3,11 +3,11 @@
 
 #include <string>
 #include "Pracownik.h"
-#include "Termin.h"
+//#include "Termin.h"
 #include "Date.h"
 
 using namespace std;
-
+class Termin;
 class Lekarz : public Pracownik
 {
 public:

@@ -3,11 +3,13 @@
 
 #include "Date.h"
 #include "Lekarz.h"
+#include "Pacjent.h"
 
 class Termin
 {
 private:
 	Lekarz lekarz;
+	Pacjent pacjent;
 	Date data;
 
 	int koszt;
@@ -22,7 +24,7 @@ public:
 
 	void setZarezerwowany(bool zarezerwowany);
 
-	void setLekarz(Lekarz lek);
+	void setLekarz(Lekarz lekarz);
 };
 
 #endif
