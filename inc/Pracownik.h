@@ -11,6 +11,7 @@ private:
 
 public:
 	Pracownik::Pracownik();
+	int Pracownik::getIdPracownika();
 };
 
 #endif
