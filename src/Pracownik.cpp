@@ -7,3 +7,8 @@ Pracownik::Pracownik()
 	++(this->licznik_pracownikow);
 	this->id_pracownika = this->licznik_pracownikow;
 }
+
+int Pracownik::getIdPracownika() 
+{
+	return this->id_pracownika;
+}

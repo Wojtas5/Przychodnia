@@ -8,10 +8,12 @@
 
 using namespace std;
 
-class Lekarz : Pracownik
+class Lekarz : public Pracownik
 {
 public:
 	string specjalizacja;
+	
+	void setSpecjalizacja(string specjalizacja);
 
 	void potwierdz_rezerwacje(Termin ter);
 

@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Pacjent.h"
+#include "Pielegniarka.h"
+#include "Lekarz.h"
 #include <vector>
 
 using namespace std;
@@ -29,6 +31,8 @@ int main()
 	//	}
 	//	cout << "Hello world!" << endl;
 	//}
+	vector<Pielegniarka*> vectorPielegniarki;
+	vector<Lekarz*>vectorLekarze;
 	cout << "Hello world!" << endl;
 	return 0;
 }

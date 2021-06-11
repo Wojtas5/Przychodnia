@@ -6,6 +6,12 @@ void Lekarz::potwierdz_rezerwacje(Termin ter)
 	throw "Not yet implemented";
 }
 
+void Lekarz::setSpecjalizacja(string specjalizacja)
+{
+	// TODO - implement Lekarz::setSpecjalizacja
+	throw "Not yet implemented";
+}
+
 void Lekarz::dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania)
 {
 	// TODO - implement Lekarz::dodaj_wynik
