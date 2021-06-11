@@ -8,16 +8,27 @@
 
 using namespace std;
 
+typedef enum
+{
+	PULMONOLOG,
+	UROLOG,
+	KARDIOLOG,
+	CHIRURG,
+} Spec;
+
 class Lekarz : public Pracownik
 {
+private:
+	Spec specjalizacja;
+
 public:
-	string specjalizacja;
-	
-	void setSpecjalizacja(string specjalizacja);
+	void setSpecjalizacja(Spec specjalizacja);
 
-	void potwierdz_rezerwacje(Termin ter);
+	Spec getSpecjalizacja();
 
-	void dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania);
+	bool potwierdz_rezerwacje(Termin ter);
+
+	void dodaj_wynik(Termin ter, string przebieg, string zalecenia, string skierowania);
 
 	void czy_wolne(Date data);
 };

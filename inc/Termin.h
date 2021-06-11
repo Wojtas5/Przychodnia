@@ -3,18 +3,20 @@
 
 #include "Date.h"
 #include "Lekarz.h"
+#include "Pacjent.h"
+
+typedef enum
+{
+	BADANIE,
+	OPERACJA,
+	KONSULTACJA
+} Typ_wizyty;
 
 class Termin
 {
 private:
-	typedef enum
-	{
-		BADANIE,
-		OPERACJA,
-		KONSULTACJA
-	} Typ_wizyty;
-
 	Lekarz lekarz;
+	Pacjent pacjent;
 	Date data;
 
 	int koszt;
@@ -23,6 +25,10 @@ private:
 	bool potwierdzony;
 
 public:
+	Termin();
+
+	void setData(Date data);
+
 	Date getData();
 
 	void setKoszt(int koszt);

@@ -1,5 +1,13 @@
 #include "Termin.h"
 
+Termin::Termin()
+{}
+
+void Termin::setData(Date data)
+{
+	this->data = data;
+}
+
 Date Termin::getData()
 {
 	return this->data;
