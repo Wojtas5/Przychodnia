@@ -1,4 +1,5 @@
 #include "Lekarz.h"
+#include "Termin.h"
 
 void Lekarz::potwierdz_rezerwacje(Termin ter)
 {

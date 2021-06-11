@@ -6,7 +6,7 @@
 #include "Pielegniarka.h"
 #include <vector>
 
-class Administrator : Uzytkownik
+class Administrator :public  Uzytkownik
 {
 
 public:
