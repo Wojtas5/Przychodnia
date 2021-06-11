@@ -3,19 +3,31 @@
 
 #include <string>
 #include "Pracownik.h"
-//#include "Termin.h"
 #include "Date.h"
 
 using namespace std;
+
 class Termin;
+
+typedef enum
+{
+	PULMONOLOG,
+	UROLOG,
+	KARDIOLOG,
+	CHIRURG
+} Spec;
+
 class Lekarz : public Pracownik
 {
-public:
-	string specjalizacja;
-	
-	void setSpecjalizacja(string specjalizacja);
+private:
+	Spec specjalizacja;
 
-	void potwierdz_rezerwacje(Termin ter);
+public:
+	void setSpecjalizacja(Spec specjalizacja);
+
+	Spec getSpecjalizacja();
+
+	bool potwierdz_rezerwacje(Termin ter);
 
 	void dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania);
 

@@ -1,16 +1,19 @@
 #include "Lekarz.h"
 #include "Termin.h"
 
-void Lekarz::potwierdz_rezerwacje(Termin ter)
+void Lekarz::setSpecjalizacja(Spec specjalizacja)
 {
-	// TODO - implement Lekarz::potwierdz_rezerwacje
-	throw "Not yet implemented";
+	this->specjalizacja = specjalizacja;
 }
 
-void Lekarz::setSpecjalizacja(string specjalizacja)
+Spec Lekarz::getSpecjalizacja()
 {
-	// TODO - implement Lekarz::setSpecjalizacja
-	throw "Not yet implemented";
+	return this->specjalizacja;
+}
+
+bool Lekarz::potwierdz_rezerwacje(Termin ter)
+{
+	return false;
 }
 
 void Lekarz::dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania)

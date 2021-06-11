@@ -38,6 +38,8 @@ void Administrator::dodaj_lekarza(vector<Lekarz*>& vectorLekarze)
 	Lekarz* lekarz = new Lekarz;
 
 	string temp;
+	int tempInt;
+
 	cout << "podaj login" << endl;
 	cin >> temp;
 	lekarz->setLogin(temp);
@@ -60,8 +62,8 @@ void Administrator::dodaj_lekarza(vector<Lekarz*>& vectorLekarze)
 	cin >> temp;
 	lekarz->setNumer_telefonu(temp);
 	cout << "podaj specjalizacje" << endl;
-	cin >> temp;
-	lekarz->setSpecjalizacja(temp);
+	cin >> tempInt;
+	lekarz->setSpecjalizacja(static_cast<Spec>(tempInt));
 
 	vectorLekarze.push_back(lekarz);
 }

@@ -11,6 +11,8 @@ private:
 	int minuta;
 
 public:
+	Date();
+
 	Date(int r, int m, int d, int godz, int min);
 
 	void wyswietl_czas();
