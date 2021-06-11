@@ -1,25 +1,21 @@
 #include "Termin.h"
 
-void Termin::setKoszt()
+void Termin::setKoszt(int koszt)
 {
-	// TODO - implement Termin::setKoszt
-	throw "Not yet implemented";
+	this->koszt = koszt;
 }
 
-void Termin::setTyp_wizyty()
+void Termin::setTyp_wizyty(int typ)
 {
-	// TODO - implement Termin::setTyp_wizyty
-	throw "Not yet implemented";
+	this->typ_wizyty = typ;
 }
 
-void Termin::setZarezerwowany()
+void Termin::setZarezerwowany(bool zarezerwowany)
 {
-	// TODO - implement Termin::setZarezerwowany
-	throw "Not yet implemented";
+	this->zarezerwowany = zarezerwowany;
 }
 
-void Termin::setLekarz()
+void Termin::setLekarz(Lekarz lek)
 {
-	// TODO - implement Termin::setLekarz
-	throw "Not yet implemented";
+	this->lekarz = lek;
 }
