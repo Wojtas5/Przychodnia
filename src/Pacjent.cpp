@@ -4,7 +4,7 @@
 
 int Pacjent::licznik_pacjentow = 0;
 
-Pacjent::Pacjent()
+Pacjent::Pacjent() : Uzytkownik()
 {
 	++(this->licznik_pacjentow);
 }

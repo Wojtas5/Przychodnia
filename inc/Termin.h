@@ -41,7 +41,7 @@ public:
 
 	void setPotwierdzony();
 
-	void setLekarz(Lekarz lek);
+	void setLekarz(Lekarz lekarz);
 };
 
 #endif
