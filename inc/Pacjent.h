@@ -1,10 +1,10 @@
 #ifndef PACJENT_H
 #define PACJENT_H
 
-#include <Uzytkownik.h>
-#include <Termin.h>
+#include "Uzytkownik.h"
+#include "Termin.h"
 
-class Pacjent : Uzytkownik
+class Pacjent : public Uzytkownik
 {
 private:
 	int numer_pacjenta;
