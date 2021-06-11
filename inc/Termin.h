@@ -2,24 +2,27 @@
 #define TERMIN_H
 
 #include "Date.h"
+#include "Lekarz.h"
 
 class Termin
 {
 private:
+	Lekarz lekarz;
 	Date data;
+
 	int koszt;
 	int typ_wizyty;
 	bool zarezerwowany;
 	bool potwierdzony;
 
 public:
-	void setKoszt();
+	void setKoszt(int koszt);
 
-	void setTyp_wizyty();
+	void setTyp_wizyty(int typ);
 
-	void setZarezerwowany();
+	void setZarezerwowany(bool zarezerwowany);
 
-	void setLekarz();
+	void setLekarz(Lekarz lek);
 };
 
 #endif
