@@ -49,6 +49,10 @@ bool Pacjent::getZarejestrowany()
 {
 	return this->zarejestrowany;
 }
+int Pacjent::getNumerPacjenta()
+{
+	return this->numer_pacjenta;
+}
 void Pacjent::zarezerwuj_termin(Termin termin)
 {
 	// TODO - implement Pacjent::zarezerwuj_termin

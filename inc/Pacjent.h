@@ -20,7 +20,7 @@ public:
 
 	void rejestracja();
 
-
+	int getNumerPacjenta();
 
 	bool getZarejestrowany();
 
