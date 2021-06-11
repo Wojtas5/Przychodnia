@@ -2,7 +2,8 @@
 #define PACJENT_H
 
 #include "Uzytkownik.h"
-#include "Termin.h"
+
+class Termin;
 
 class Pacjent : public Uzytkownik
 {

@@ -3,17 +3,18 @@
 
 #include <string>
 #include "Pracownik.h"
-#include "Termin.h"
 #include "Date.h"
 
 using namespace std;
+
+class Termin;
 
 typedef enum
 {
 	PULMONOLOG,
 	UROLOG,
 	KARDIOLOG,
-	CHIRURG,
+	CHIRURG
 } Spec;
 
 class Lekarz : public Pracownik
@@ -28,7 +29,7 @@ public:
 
 	bool potwierdz_rezerwacje(Termin ter);
 
-	void dodaj_wynik(Termin ter, string przebieg, string zalecenia, string skierowania);
+	void dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania);
 
 	void czy_wolne(Date data);
 };

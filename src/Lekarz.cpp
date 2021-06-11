@@ -1,4 +1,5 @@
 #include "Lekarz.h"
+#include "Termin.h"
 
 void Lekarz::setSpecjalizacja(Spec specjalizacja)
 {
@@ -8,6 +9,11 @@ void Lekarz::setSpecjalizacja(Spec specjalizacja)
 Spec Lekarz::getSpecjalizacja()
 {
 	return this->specjalizacja;
+}
+
+bool Lekarz::potwierdz_rezerwacje(Termin ter)
+{
+	return false;
 }
 
 void Lekarz::dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania)

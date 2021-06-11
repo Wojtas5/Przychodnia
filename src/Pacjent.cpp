@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Pacjent.h"
+#include "Termin.h"
 
 int Pacjent::licznik_pacjentow = 0;
 

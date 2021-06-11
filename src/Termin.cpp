@@ -1,4 +1,6 @@
 #include "Termin.h"
+#include "Lekarz.h"
+#include "Pacjent.h"
 
 Termin::Termin()
 {}
