@@ -73,7 +73,6 @@ void Administrator::dodaj_lekarza(vector<Lekarz*>& vectorLekarze)
 	lekarz->setPesel(temp);
 	cout << "podaj numer telefonu" << endl;
 	cin >> temp;
-cin.clear()
 	cin.clear();
 	lekarz->setNumer_telefonu(temp);
 	cout << "podaj specjalizacje" << endl;
