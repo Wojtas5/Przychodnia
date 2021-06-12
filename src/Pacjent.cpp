@@ -20,6 +20,7 @@ void Pacjent::wyswietlWyniki()
 	for (int i = 0; i < this->wyniki.size(); ++i)
 	{
 		this->wyniki[i]->wyswietlWynik();
+		Sleep(300);
 	}
 }
 
