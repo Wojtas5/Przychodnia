@@ -224,7 +224,7 @@ void logowanie(string login, string haslo)
 
 int main()
 {
-	while(1)
+	while (1)
 	{
 		string login, haslo;
 		cout << "MENU:\n1. Zaloguj sie\n2. Zarejestruj sie\n";

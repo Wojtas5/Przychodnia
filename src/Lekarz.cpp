@@ -79,8 +79,22 @@ void Lekarz::dodaj_wynik(Date data, string przebieg, string zalecenia, string sk
 	throw "Not yet implemented";
 }
 
-void Lekarz::czy_wolne(Date data)
+bool Lekarz::czy_wolne(Date data, vector<Termin*>& terminy)
 {
-	// TODO - implement Lekarz::czy_wolne
-	throw "Not yet implemented";
+	if (0 != terminy.size())
+	{
+		for (int i = 0; i < terminy.size(); i++)
+		{
+			if (terminy[i]->getLekarz() == this && *terminy[i]->getData() == data)
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+	else
+	{
+		return true;
+	}
 }

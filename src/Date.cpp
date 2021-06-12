@@ -100,3 +100,19 @@ void Date::wyswietl_czas()
 
 	cout << "Data: " << dzien << "." << miesiac << "." << rok << " " << godz << ":" << min << endl;
 }
+
+bool Date::operator==(Date other)
+{
+	if (this->rok == other.rok         &&
+		this->miesiac == other.miesiac &&
+		this->dzien == other.dzien     &&
+		this->godzina == other.godzina &&
+		this->minuta == other.minuta)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}

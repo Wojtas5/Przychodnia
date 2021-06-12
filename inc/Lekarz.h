@@ -32,7 +32,7 @@ public:
 
 	void dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania);
 
-	void czy_wolne(Date data);
+	bool czy_wolne(Date data, vector<Termin*>& terminy);
 };
 
 #endif

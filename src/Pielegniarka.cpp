@@ -26,37 +26,40 @@ void Pielegniarka::dodaj_wolny_termin(vector<Termin*>& terminy, vector<Lekarz*>&
 		bool lekarz_znaleziony = false;
 
 		Termin* termin = new Termin;
+		Date* tempData = new Date;
 
 		// Wyszukaj lekarza i dodaj do terminu
-		while (!lekarz_znaleziony)
+		cout << "Podaj specjalizacje: " << endl
+			<< "(0 - Pulmonolog)" << endl
+			<< "(1 - Urolog)" << endl
+			<< "(2 - Kardiolog)" << endl
+			<< "(3 - Chirurg)" << endl;
+
+		cin >> tempInt;
+
+		for (int i = 0; i < lekarze.size(); i++)
 		{
-			cout << "Podaj specjalizacje: " << endl
-				<< "(0 - Pulmonolog)" << endl
-				<< "(1 - Urolog)" << endl
-				<< "(2 - Kardiolog)" << endl
-				<< "(3 - Chirurg)" << endl;
-
-			cin >> tempInt;
-
-			// TODO Sprawdz ktorzy lekarze maja wolne uzywajac metody czy_wolne na lekarzu
-			for (int i = 0; i < lekarze.size(); i++)
+			// TODO Bug: Jak uda sie znalesc lekarza to freezuje konsole az podamy kolejny znak
+			if (lekarze[i]->getSpecjalizacja() == static_cast<Spec>(tempInt) &&
+				lekarze[i]->czy_wolne(*tempData, terminy) == true)
 			{
-				if (lekarze[i]->getSpecjalizacja() == static_cast<Spec>(tempInt))
-				{
-					termin->setLekarz(lekarze[i]);
-					lekarz_znaleziony = true;
-					break;
-				}
+				termin->setData(tempData);
+				termin->setLekarz(lekarze[i]);
+				lekarz_znaleziony = true;
+				break;
 			}
-
-			// TODO Wypisujemy to nawet jak znajdziemy lekarza
-			cout << "Nie znaleziono lekarza! Try again" << endl;
 		}
 
-		// Stworz date i dodaj ja do terminu
-		// TODO Bug: po tej sekwencji konsola czeka na podanie znaku nie wiadomo czemu
-		Date *tempData = new Date;
-		termin->setData(tempData);
+		// Jesli nie znaleziono lekarza, zakoncz metode
+		if (!lekarz_znaleziony)
+		{
+			delete termin;
+			delete tempData;
+
+			cout << "Nie znaleziono lekarza!" << endl;
+			Sleep(500);
+			return;
+		}
 		
 		// Ustaw koszt
 		cin >> tempInt;
