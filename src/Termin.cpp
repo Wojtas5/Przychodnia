@@ -20,6 +20,11 @@ void Termin::setPacjent(Pacjent* pacjent)
 	this->pacjent = *pacjent;
 }
 
+Pacjent Termin::getPacjent()
+{
+	return this->pacjent;
+}
+
 void Termin::setKoszt(int koszt)
 {
 	this->koszt = koszt;
@@ -30,9 +35,9 @@ void Termin::setTyp_wizyty(Typ_wizyty typ)
 	this->typ_wizyty = typ;
 }
 
-void Termin::setZarezerwowany()
+void Termin::setZarezerwowany(bool zarez)
 {
-	this->zarezerwowany = true;
+	this->zarezerwowany = zarez;
 }
 
 bool Termin::getZarezerwowany()
@@ -40,9 +45,14 @@ bool Termin::getZarezerwowany()
 	return this->zarezerwowany;
 }
 
-void Termin::setPotwierdzony()
+void Termin::setPotwierdzony(bool potw)
 {
-	this->potwierdzony = true;
+	this->potwierdzony = potw;
+}
+
+bool Termin::getPotwierdzony()
+{
+	return this->potwierdzony;
 }
 
 void Termin::setLekarz(Lekarz lek)

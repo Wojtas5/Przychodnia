@@ -13,6 +13,7 @@ Spec Lekarz::getSpecjalizacja()
 
 bool Lekarz::potwierdz_rezerwacje(Termin ter)
 {
+	// TODO - implement Lekarz::potwierdz_rezerwacje
 	return false;
 }
 

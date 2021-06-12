@@ -74,38 +74,84 @@ int Pacjent::getNumerPacjenta()
 
 void Pacjent::zarezerwuj_termin(vector<Termin*> terminy)
 {
-	int wybranyTermin = 0;
-
-	cout << "Dostepne terminy:" << endl;
-
-	for (int i = 0; i < terminy.size(); ++i)
+	if (0 != terminy.size())
 	{
-		cout << i << ". ";
-		terminy[i]->getData().wyswietl_czas();
-		cout << endl;
+		int wybranyTermin = 0;
+
+		cout << "Dostepne terminy:" << endl;
+
+		for (int i = 0; i < terminy.size(); ++i)
+		{
+			cout << i << ". ";
+			terminy[i]->getData().wyswietl_czas();
+			cout << endl;
+		}
+
+		cout << "Wybierz termin: ";
+		while (1)
+		{
+			cin >> wybranyTermin;
+
+			if (0 != wybranyTermin)
+			{
+				terminy[wybranyTermin]->setPacjent(this);
+				terminy[wybranyTermin]->setZarezerwowany(true);
+				cout << "Wybrano: ";
+				terminy[wybranyTermin]->getData().wyswietl_czas();
+				break;
+			}
+			else
+			{
+				cout << "Wybrano zly termin, sprobuj ponownie";
+			}
+		}
 	}
-
-	cout << "Wybierz termin: ";
-	while (1)
+	else
 	{
-		cin >> wybranyTermin;
-
-		if (0 != wybranyTermin)
-		{
-			terminy[wybranyTermin]->setPacjent(this);
-			cout << "Wybrano: ";
-			terminy[wybranyTermin]->getData().wyswietl_czas();
-			break;
-		}
-		else
-		{
-			cout << "Wybrano zly termin, sprobuj ponownie";
-		}
+		cout << "Brak dostepnych wolnych terminow" << endl;
 	}
 }
 
-void Pacjent::usun_rezerwacje(Termin termin)
+void Pacjent::usun_rezerwacje(vector<Termin*> terminy)
 {
-	// TODO - implement Pacjent::usun_rezerwacje
-	throw "Not yet implemented";
+	if (0 != terminy.size())
+	{
+		int wybranyTermin = 0;
+
+		cout << "Terminy przypisane do tego pacjenta: " << endl;;
+
+		for (int i = 0; i < terminy.size(); ++i)
+		{
+			if (&terminy[i]->getPacjent() == this)
+			{
+				cout << i << ". ";
+				terminy[i]->getData().wyswietl_czas();
+				cout << endl;
+			}
+		}
+
+		cout << "Wybierz termin ktory chcesz usunac: ";
+		while (1)
+		{
+			cin >> wybranyTermin;
+
+			if (0 != wybranyTermin)
+			{
+				terminy[wybranyTermin]->setZarezerwowany(false);
+				terminy[wybranyTermin]->setPotwierdzony(false);
+
+				cout << "Usunieto rezerwacje z: ";
+				terminy[wybranyTermin]->getData().wyswietl_czas();
+				break;
+			}
+			else
+			{
+				cout << "Wybrano zly termin, sprobuj ponownie";
+			}
+		}
+	}
+	else
+	{
+		cout << "Brak dostepnych zarezerwowanych terminow terminow" << endl;
+	}
 }

@@ -28,7 +28,7 @@ public:
 
 	void zarezerwuj_termin(vector<Termin*> terminy);
 
-	void usun_rezerwacje(Termin termin);
+	void usun_rezerwacje(vector<Termin*> terminy);
 };
 
 #endif
