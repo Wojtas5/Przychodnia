@@ -16,6 +16,8 @@ public:
 	Date(int r, int m, int d, int godz, int min);
 
 	void wyswietl_czas();
+
+	bool Date::operator==(Date other);
 };
 
 #endif

@@ -24,7 +24,7 @@ bool Uzytkownik::zaloguj(string login, string haslo)
 
 	if (this->login == login && this->haslo == haslo)
 	{
-		zalogowany = true;
+		this->zalogowany = true;
 		retval = true;
 
 		cout << "Pomyslnie zalogowano " << imie << " " << nazwisko << endl;

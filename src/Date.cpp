@@ -39,25 +39,25 @@ Date::Date()
 			cin >> temp;
 			cin.clear();
 			cout << endl;
-			this->miesiac = temp;
+			this->miesiac = ((temp > max_miesiac) ? max_miesiac : temp);
 
 			cout << "Podaj dzien: ";
 			cin >> temp;
 			cin.clear();
 			cout << endl;
-			this->dzien = temp;
+			this->dzien = ((temp > max_dzien) ? max_dzien : temp);
 
 			cout << "Podaj godzine: ";
 			cin >> temp;
 			cin.clear();
 			cout << endl;
-			this->godzina = temp;
+			this->godzina = ((temp > max_godzina) ? max_godzina : temp);
 
 			cout << "Podaj minute: ";
 			cin >> temp;
 			cin.clear();
 			cout << endl;
-			this->minuta = temp;
+			this->minuta = ((temp > max_minuta) ? max_minuta : temp);
 
 			this->wyswietl_czas();
 
@@ -99,4 +99,20 @@ void Date::wyswietl_czas()
 	}
 
 	cout << "Data: " << dzien << "." << miesiac << "." << rok << " " << godz << ":" << min << endl;
+}
+
+bool Date::operator==(Date other)
+{
+	if (this->rok == other.rok         &&
+		this->miesiac == other.miesiac &&
+		this->dzien == other.dzien     &&
+		this->godzina == other.godzina &&
+		this->minuta == other.minuta)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

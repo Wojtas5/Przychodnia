@@ -2,6 +2,7 @@
 #define PACJENT_H
 
 #include <vector>
+#include "WynikWizyty.h"
 #include "Uzytkownik.h"
 
 class Termin;
@@ -9,6 +10,8 @@ class Termin;
 class Pacjent : public Uzytkownik
 {
 private:
+	vector<WynikWizyty*> wyniki;
+
 	int numer_pacjenta;
 	static int licznik_pacjentow;
 	bool zarejestrowany;
@@ -16,9 +19,12 @@ private:
 	void setZarejestrowany();
 	void wygenerujNumer_pacjenta();
 
-
 public:
 	Pacjent::Pacjent();
+
+	vector<WynikWizyty*> getWyniki();
+
+	void wyswietlWyniki();
 
 	void rejestracja();
 

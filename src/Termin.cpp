@@ -2,25 +2,17 @@
 #include "Lekarz.h"
 #include "Pacjent.h"
 
-Termin::Termin()
-{}
-
-void Termin::setData(Date data)
+void Termin::setData(Date *data)
 {
 	this->data = data;
 }
 
-Date Termin::getData()
-{
-	return this->data;
-}
-
 void Termin::setPacjent(Pacjent* pacjent)
 {
-	this->pacjent = *pacjent;
+	this->pacjent = pacjent;
 }
 
-Pacjent Termin::getPacjent()
+Pacjent *Termin::getPacjent()
 {
 	return this->pacjent;
 }
@@ -55,7 +47,12 @@ bool Termin::getPotwierdzony()
 	return this->potwierdzony;
 }
 
-void Termin::setLekarz(Lekarz lek)
+void Termin::setLekarz(Lekarz *lek)
 {
 	this->lekarz = lek;
+}
+
+Lekarz* Termin::getLekarz()
+{
+	return this->lekarz;
 }
