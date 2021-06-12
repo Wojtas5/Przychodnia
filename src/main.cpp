@@ -23,21 +23,23 @@ void PacjentAction(Pacjent *pacjent,string login)
 	while (czynnosc != 9)
 	{
 		cout << "Menu pacjenta " << login << ":\n 1.Zarezerwuj termin\n2.Usun rezerwacje\n3.Wyswietl wyniki\n9. Wyloguj\n";
-		cin >> czynnosc;
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
 		system("cls");
 
 		switch (czynnosc)
 		{
-		case 1:
+		case '1':
 			//pacjent->zarezerwuj_termin();
 			break;
-		case 2:
+		case '2':
 			//pacjent->usun_rezerwacje();
 			break;
-		case 3:
+		case '3':
 			//	pacjent->wyswietl_wynik();
 			break;
-		case 9:
+		case '9':
 			pacjent->wyloguj();
 			zalogowany = pacjent->getZalogowany();
 			cout << "WYLOGOWANO\n";
@@ -56,19 +58,20 @@ void LekarzAction(Lekarz *lekarz, string login)
 	while (czynnosc != 9)
 	{
 		cout << "Menu lekarza: " << login << "\n1.Potwierdz rezerwacje\n2.Dodaj wynik\n9. Wyloguj\n";
-		cin >> czynnosc;
-		cin.clear();
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
 		system("cls");
 
 		switch (czynnosc)
 		{
-		case 1:
+		case '1':
 			//lekarz->potwierdz_rezerwacje();
 			break;
-		case 2:
+		case '2':
 			//lekarz->dodaj_wynik();
 			break;
-		case 9:
+		case '9':
 			lekarz->wyloguj();
 			zalogowany = lekarz->getZalogowany();
 			cout << "WYLOGOWANO\n";
@@ -84,27 +87,28 @@ void LekarzAction(Lekarz *lekarz, string login)
 }
 void pielegniarkaAction(Pielegniarka *pielegniarka, string login) 
 {
-	while (czynnosc !=9)
+	while (czynnosc !='9')
 	{
 		
 		cout << "Menu pielegniarki " << login << ":\n1.Usun pacjenta\n2.Dodaj termin\n9. Wyloguj\n";
-		cin >> czynnosc;
-		cin.clear();
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
 		system("cls");
 
 		switch (czynnosc)
 		{
-		case 1:
+		case '1':
 			cout << "Podaj id pacjenta ktorego chcesz usunac\n 0. Anuluj\n";
 			int idPacjenta;
 			cin >> idPacjenta;
 			if (idPacjenta != 0)
 				pielegniarka->usuniecie_pacjenta(idPacjenta, vectorPacjenci);
 			break;
-		case 2:
+		case '2':
 			pielegniarka->dodaj_wolny_termin(vectorTerminy, vectorLekarze);
 			break;
-		case 9:
+		case '9':
 			pielegniarka->wyloguj();
 			zalogowany = pielegniarka->getZalogowany();
 			cout << "WYLOGOWANO\n";
@@ -120,32 +124,33 @@ void pielegniarkaAction(Pielegniarka *pielegniarka, string login)
 }
 void administratorAction(Administrator *administrator, string login) 
 {
-	while (czynnosc != 9)
+	while (czynnosc != '9')
 	{
 		system("cls");
 		cout << "Menu administratora: " << login << "\n1.Dodaj lekarza\n2.Dodaj pielegniarke\n3.Usun pracownika\n9. Wyloguj\n";
-		cin >> czynnosc;
-		cin.clear();
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
 		system("cls");
 
 		switch (czynnosc)
 		{
-		case 1:
+		case '1':
 			cout<<"Dodaje lekarza\n";
 			administrator->dodaj_lekarza(vectorLekarze);
 			break;
-		case 2:
+		case '2':
 			cout << "Dodaje pielegniarke\n";
 			administrator->dodaj_pielegniarke(vectorPielegniarki);
 			break;
-		case 3:
+		case '3':
 			cout << "Podaj id pracownika ktorego chcesz usunac\n 0. Anuluj\n";
 			int idPracownika;
 			cin >> idPracownika;
 			if (idPracownika != 0)
 				administrator->usun_pracownika(idPracownika, vectorLekarze, vectorPielegniarki);
 			break;
-		case 9:
+		case '9':
 			administrator->wyloguj();
 			zalogowany = administrator->getZalogowany();
 			cout << "WYLOGOWANO\n";
@@ -216,6 +221,10 @@ void logowanie(string login, string haslo)
 			//		break;
 			//	}
 			//}
+	if (!zalogowany) {
+		cout << "Bledne dane logowania\n";
+		Sleep(300);
+	}
 }
 
 int main()
@@ -224,21 +233,21 @@ int main()
 	{
 		string login, haslo;
 		cout << "MENU:\n1. Zaloguj sie\n2. Zarejestruj sie\n";
-		cin >> czynnosc;
-		cin.clear();
-
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
 		system("cls");
 
 		switch (czynnosc)
 		{
-		case 1:
+		case '1':
 			cout << "Podaj login: ";
 			cin >> login;
 			cout << "\nPodaj haslo: ";
 			cin >> haslo;
 			logowanie(login, haslo);
 			break;
-		case 2:
+		case '2':
 			rejestracja();
 			break;
 		default:
@@ -248,6 +257,6 @@ int main()
 		}
 		system("cls");
 
-	} while (1 == 1);
+	} while(1);
 	return 0;
 }
