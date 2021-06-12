@@ -20,7 +20,7 @@ int czynnosc = 0;
 
 void PacjentAction(Pacjent *pacjent,string login) 
 {
-	while (czynnosc != 9)
+	while (czynnosc != '9')
 	{
 		cout << "Menu pacjenta " << login << ":\n1.Zarezerwuj termin\n2.Usun rezerwacje\n3.Wyswietl wyniki\n9. Wyloguj\n";
 		czynnosc = getchar();
@@ -50,6 +50,7 @@ void PacjentAction(Pacjent *pacjent,string login)
 			Sleep(300);
 			break;
 		}
+
 		system("cls");
 	}
 }
@@ -66,7 +67,7 @@ void LekarzAction(Lekarz *lekarz, string login)
 		switch (czynnosc)
 		{
 		case '1':
-			//lekarz->potwierdz_rezerwacje();
+			lekarz->potwierdz_rezerwacje(vectorTerminy);
 			break;
 		case '2':
 			//lekarz->dodaj_wynik();
@@ -206,22 +207,16 @@ void logowanie(string login, string haslo)
 			}
 		}
 	if (!zalogowany)
+	{
 		if (login == "admin" && haslo == "admin")
 		{
 			Administrator* admin = new Administrator();
 			administratorAction(admin, login);
 		}
-			//for (int i = 0; i < vectorAdministratorzy.size(); i++)
-			//{
-			//	if (vectorAdministratorzy[i]->zaloguj(login, haslo))
-			//	{
-			//		zalogowany = vectorAdministratorzy[i]->getZalogowany();
-			//		system("cls");
-			//      administratorAction(admin, login);
-			//		break;
-			//	}
-			//}
-	if (!zalogowany) {
+	}
+
+	if (!zalogowany) 
+	{
 		cout << "Bledne dane logowania\n";
 		Sleep(300);
 	}
@@ -229,7 +224,7 @@ void logowanie(string login, string haslo)
 
 int main()
 {
-	do
+	while(1)
 	{
 		string login, haslo;
 		cout << "MENU:\n1. Zaloguj sie\n2. Zarejestruj sie\n";
@@ -255,9 +250,9 @@ int main()
 			Sleep(300);
 			break;
 		}
-		system("cls");
 
-	} while(1);
+		system("cls");
+	}
 
 	return 0;
 }
