@@ -31,15 +31,21 @@ public:
 
 	Date getData();
 
+	void setPacjent(Pacjent *pacjent);
+
+	Pacjent getPacjent();
+
 	void setKoszt(int koszt);
 
 	void setTyp_wizyty(Typ_wizyty typ);
 
-	void setZarezerwowany();
+	void setZarezerwowany(bool zarez);
 
 	bool getZarezerwowany();
 
-	void setPotwierdzony();
+	void setPotwierdzony(bool potw);
+
+	bool getPotwierdzony();
 
 	void setLekarz(Lekarz lekarz);
 };
