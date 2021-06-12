@@ -99,3 +99,8 @@ bool Uzytkownik::getZalogowany()
 {
 	return this->zalogowany;
 }
+
+string Uzytkownik::getLogin()
+{
+	return this->login;
+}

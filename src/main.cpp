@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cstdio>
+#include <cstdlib>
 #include <windows.h>
 #include "Pacjent.h"
 #include "Pielegniarka.h"
@@ -18,8 +19,6 @@ vector<Termin*> vectorTerminy;
 static bool zalogowany = false;
 static int czynnosc = 0;
 
-// TODO Przepatrzyc funkcje logowania i wylogowywania
-// i naprawic printowanie nadmiernej ilosci komunikatow
 void PacjentAction(Pacjent *pacjent,string login) 
 {
 	while (czynnosc != '9')
@@ -175,44 +174,59 @@ void rejestracja()
 }
 void logowanie(string login, string haslo)
 {
+	Administrator* admin = new Administrator();
+	int i = 0;
+	int typUzytkownika =0;//1 = pacjent, 2 = lekarz, 3 = pielegniarka, 4= admin
 	if (!zalogowany)
 	{
-		for (int i = 0; i < vectorPacjenci.size(); i++)
+		for (i = 0; i < vectorPacjenci.size(); i++)
 		{
-			if (vectorPacjenci[i]->zaloguj(login, haslo))
+			if(login == vectorPacjenci[i]->getLogin())
 			{
-				zalogowany = vectorPacjenci[i]->getZalogowany();
-				system("cls");
-				PacjentAction(vectorPacjenci[i], login);
-				break;
+				try 
+				{
+					vectorPacjenci[i]->zaloguj(login, haslo);
+					zalogowany = vectorPacjenci[i]->getZalogowany();
+					typUzytkownika = 1;
+					break;
+				}
+				catch(exception ex){}
 			}
 		}
 	}
 
 	if (!zalogowany)
 	{
-		for (int i = 0; i < vectorLekarze.size(); i++)
+		for (i = 0; i < vectorLekarze.size(); i++)
 		{
-			if (vectorLekarze[i]->zaloguj(login, haslo))
+			if (login == vectorLekarze[i]->getLogin())
 			{
-				zalogowany = vectorLekarze[i]->getZalogowany();
-				system("cls");
-				LekarzAction(vectorLekarze[i], login);
-				break;
+				try
+				{
+					vectorLekarze[i]->zaloguj(login, haslo);
+					zalogowany = vectorLekarze[i]->getZalogowany();
+					typUzytkownika = 2;
+					break;
+				}
+				catch(exception ex){}
 			}
 		}
 	}
 
 	if (!zalogowany)
 	{
-		for (int i = 0; i < vectorPielegniarki.size(); i++)
+		for (i = 0; i < vectorPielegniarki.size(); i++)
 		{
-			if (vectorPielegniarki[i]->zaloguj(login, haslo))
+			if (login == vectorPielegniarki[i]->getLogin())
 			{
-				zalogowany = vectorPielegniarki[i]->getZalogowany();
-				system("cls");
-				pielegniarkaAction(vectorPielegniarki[i], login);
-				break;
+				try
+				{
+					vectorPielegniarki[i]->zaloguj(login, haslo);
+					zalogowany = vectorPielegniarki[i]->getZalogowany();
+					typUzytkownika = 3;
+					break;
+				}
+				catch(exception ex){}
 			}
 		}
 	}
@@ -221,15 +235,35 @@ void logowanie(string login, string haslo)
 	{
 		if (login == "admin" && haslo == "admin")
 		{
-			Administrator* admin = new Administrator();
-			administratorAction(admin, login);
+			try {
+				zalogowany = true;
+				typUzytkownika = 4;
+			}
+			catch(exception ex){}
 		}
 	}
-
 	if (!zalogowany) 
 	{
+		typUzytkownika = 0;
+	}
+	system("cls");
+	switch (typUzytkownika)
+	{
+	case 1:
+		PacjentAction(vectorPacjenci[i], login);
+		break;
+	case 2:
+		LekarzAction(vectorLekarze[i], login);
+		break;
+	case 3:
+		pielegniarkaAction(vectorPielegniarki[i], login);
+		break;
+	case 4:
+		administratorAction(admin, login);
+		break;
+	default:
 		cout << "Bledne dane logowania\n";
-		Sleep(300);
+		break;
 	}
 }
 
