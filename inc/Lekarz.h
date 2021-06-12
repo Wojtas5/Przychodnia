@@ -2,6 +2,7 @@
 #define LEKARZ_H
 
 #include <string>
+#include <vector>
 #include "Pracownik.h"
 #include "Date.h"
 
@@ -27,7 +28,7 @@ public:
 
 	Spec getSpecjalizacja();
 
-	bool potwierdz_rezerwacje(Termin ter);
+	bool potwierdz_rezerwacje(vector<Termin*> terminy);
 
 	void dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania);
 

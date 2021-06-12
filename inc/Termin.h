@@ -59,6 +59,8 @@ public:
 	bool getPotwierdzony();
 
 	void setLekarz(Lekarz *lekarz);
+
+	Lekarz* getLekarz();
 };
 
 #endif

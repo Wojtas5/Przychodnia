@@ -49,10 +49,12 @@ void Pielegniarka::dodaj_wolny_termin(vector<Termin*>& terminy, vector<Lekarz*>&
 				}
 			}
 
+			// TODO Wypisujemy to nawet jak znajdziemy lekarza
 			cout << "Nie znaleziono lekarza! Try again" << endl;
 		}
 
 		// Stworz date i dodaj ja do terminu
+		// TODO Bug: po tej sekwencji konsola czeka na podanie znaku nie wiadomo czemu
 		Date *tempData = new Date;
 		termin->setData(tempData);
 		

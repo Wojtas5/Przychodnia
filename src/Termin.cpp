@@ -51,3 +51,8 @@ void Termin::setLekarz(Lekarz *lek)
 {
 	this->lekarz = lek;
 }
+
+Lekarz* Termin::getLekarz()
+{
+	return this->lekarz;
+}
