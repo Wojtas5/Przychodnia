@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Uzytkownik.h"
+#include <windows.h>
 
 Uzytkownik::Uzytkownik()
 {}
@@ -27,14 +28,17 @@ bool Uzytkownik::zaloguj(string login, string haslo)
 		retval = true;
 
 		cout << "Pomyslnie zalogowano " << imie << " " << nazwisko << endl;
+		Sleep(300);
 	}
 	else if (this->login != login)
 	{
 		cout << "Wprowadzono bledny login " << login << " dla " << imie << " " << nazwisko << endl;
+		Sleep(300);
 	}
 	else if (this->haslo != haslo)
 	{
 		cout << "Wprowadzono bledne haslo" << " dla " << imie << " " << nazwisko << endl;
+		Sleep(300);
 	}
 
 	return retval;
@@ -47,10 +51,12 @@ void Uzytkownik::wyloguj()
 		this->zalogowany = false;
 
 		cout << "Uzytkownik wylogowany pomyslnie" << endl;
+		Sleep(300);
 	}
 	else
 	{
 		cout << "Uzytkownik nie jest zalogowany" << endl;
+		Sleep(300);
 	}
 }
 

@@ -10,7 +10,7 @@ void Pielegniarka::usuniecie_pacjenta(int numer_pacjenta, vector<Pacjent*> &pacj
 	{
 		if (pacjenciVector[i]->getNumerPacjenta() == numer_pacjenta) 
 		{
-			pacjenciVector.erase(pacjenciVector.begin()+i-1);
+			pacjenciVector.erase(pacjenciVector.begin()+i);
 			break;
 		}
 	}
@@ -31,6 +31,7 @@ void Pielegniarka::dodaj_wolny_termin(vector<Termin*> &terminy, vector<Lekarz*> 
 		<< "(3 - Chirurg)" << endl;
 
 	cin >> tempInt;
+	cin.clear();
 
 	for (int i = 0; i < lekarze.size(); i++)
 	{
@@ -45,6 +46,8 @@ void Pielegniarka::dodaj_wolny_termin(vector<Termin*> &terminy, vector<Lekarz*> 
 	termin->setData(tempData);
 
 	cin >> tempInt;
+	cin.clear();
+
 	termin->setKoszt(tempInt);
 
 	cout << "Podaj typ wizyty: " << endl
@@ -53,7 +56,8 @@ void Pielegniarka::dodaj_wolny_termin(vector<Termin*> &terminy, vector<Lekarz*> 
 		<< "(2 - Konsultacja)" << endl;
 
 	cin >> tempInt;
-	
+	cin.clear();
+
 	termin->setTyp_wizyty(static_cast<Typ_wizyty>(tempInt));
 
 	terminy.push_back(termin);

@@ -31,26 +31,31 @@ Date::Date()
 
 			cout << "Podaj rok: ";
 			cin >> temp;
+			cin.clear();
 			cout << endl;
 			this->rok = temp;
 
 			cout << "Podaj miesiac: ";
 			cin >> temp;
+			cin.clear();
 			cout << endl;
 			this->miesiac = temp;
 
 			cout << "Podaj dzien: ";
 			cin >> temp;
+			cin.clear();
 			cout << endl;
 			this->dzien = temp;
 
 			cout << "Podaj godzine: ";
 			cin >> temp;
+			cin.clear();
 			cout << endl;
 			this->godzina = temp;
 
 			cout << "Podaj minute: ";
 			cin >> temp;
+			cin.clear();
 			cout << endl;
 			this->minuta = temp;
 

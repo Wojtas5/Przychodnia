@@ -4,6 +4,8 @@
 #include "Lekarz.h"
 #include "Administrator.h"
 #include <vector>
+#include <cstdio>
+#include<windows.h>
 
 using namespace std;
 
@@ -11,24 +13,155 @@ vector<Pielegniarka*> vectorPielegniarki;
 vector<Lekarz*>vectorLekarze;
 vector<Pacjent*> vectorPacjenci;
 vector<Administrator*> vectorAdministratorzy;
+vector<Termin*> vectorTerminy;
 bool zalogowany = false;
 
 int czynnosc = 0;
 
-void PacjentAction(string login) {
-	cout << "Menu pacjenta " << login << ":\n 1.Zarezerwuj termin\n2.Usun rezerwacje\n3.Wyswietl wyniki\n9. Wyloguj\n";
-}
-void LekarzAction(string login) {
-	cout << "Menu lekarza: " << login << "\n 1.Potwierdz rezerwacje\n2.Dodaj wynik\n9. Wyloguj\n";
+void PacjentAction(Pacjent *pacjent,string login) 
+{
+	while (czynnosc != 9)
+	{
+		cout << "Menu pacjenta " << login << ":\n 1.Zarezerwuj termin\n2.Usun rezerwacje\n3.Wyswietl wyniki\n9. Wyloguj\n";
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
+		system("cls");
 
+		switch (czynnosc)
+		{
+		case '1':
+			//pacjent->zarezerwuj_termin();
+			break;
+		case '2':
+			//pacjent->usun_rezerwacje();
+			break;
+		case '3':
+			//	pacjent->wyswietl_wynik();
+			break;
+		case '9':
+			pacjent->wyloguj();
+			zalogowany = pacjent->getZalogowany();
+			cout << "WYLOGOWANO\n";
+			Sleep(300);
+			break;
+		default:
+			cout << "BRAK TAKIEJ OPCJI W MENU\n";
+			Sleep(300);
+			break;
+		}
+		system("cls");
+	}
 }
-void pielegniarkaAction(string login) {
-	cout << "Menu pielegniarki " << login << ":\n1.Usun pacjenta\n2.Dodaj termin\n9. Wyloguj\n";
+void LekarzAction(Lekarz *lekarz, string login) 
+{
+	while (czynnosc != 9)
+	{
+		cout << "Menu lekarza: " << login << "\n1.Potwierdz rezerwacje\n2.Dodaj wynik\n9. Wyloguj\n";
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
+		system("cls");
 
+		switch (czynnosc)
+		{
+		case '1':
+			//lekarz->potwierdz_rezerwacje();
+			break;
+		case '2':
+			//lekarz->dodaj_wynik();
+			break;
+		case '9':
+			lekarz->wyloguj();
+			zalogowany = lekarz->getZalogowany();
+			cout << "WYLOGOWANO\n";
+			Sleep(300);
+			break;
+		default:
+			cout << "BRAK TAKIEJ OPCJI W MENU\n";
+			Sleep(300);
+			break;
+		}
+		system("cls");
+	}
 }
-void administratorAction(string login) {
-	cout << "Menu administratora: " << login << "\n 1.Dodaj lekarza\n2.Dodaj pielegniarke\n3.Usun pracownika\n9. Wyloguj\n";
+void pielegniarkaAction(Pielegniarka *pielegniarka, string login) 
+{
+	while (czynnosc !='9')
+	{
+		
+		cout << "Menu pielegniarki " << login << ":\n1.Usun pacjenta\n2.Dodaj termin\n9. Wyloguj\n";
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
+		system("cls");
 
+		switch (czynnosc)
+		{
+		case '1':
+			cout << "Podaj id pacjenta ktorego chcesz usunac\n 0. Anuluj\n";
+			int idPacjenta;
+			cin >> idPacjenta;
+			if (idPacjenta != 0)
+				pielegniarka->usuniecie_pacjenta(idPacjenta, vectorPacjenci);
+			break;
+		case '2':
+			pielegniarka->dodaj_wolny_termin(vectorTerminy, vectorLekarze);
+			break;
+		case '9':
+			pielegniarka->wyloguj();
+			zalogowany = pielegniarka->getZalogowany();
+			cout << "WYLOGOWANO\n";
+			Sleep(300);
+			break;
+		default:
+			cout << "BRAK TAKIEJ OPCJI W MENU\n";
+			Sleep(300);
+			break;
+		}
+		system("cls");
+	}
+}
+void administratorAction(Administrator *administrator, string login) 
+{
+	while (czynnosc != '9')
+	{
+		system("cls");
+		cout << "Menu administratora: " << login << "\n1.Dodaj lekarza\n2.Dodaj pielegniarke\n3.Usun pracownika\n9. Wyloguj\n";
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
+		system("cls");
+
+		switch (czynnosc)
+		{
+		case '1':
+			cout<<"Dodaje lekarza\n";
+			administrator->dodaj_lekarza(vectorLekarze);
+			break;
+		case '2':
+			cout << "Dodaje pielegniarke\n";
+			administrator->dodaj_pielegniarke(vectorPielegniarki);
+			break;
+		case '3':
+			cout << "Podaj id pracownika ktorego chcesz usunac\n 0. Anuluj\n";
+			int idPracownika;
+			cin >> idPracownika;
+			if (idPracownika != 0)
+				administrator->usun_pracownika(idPracownika, vectorLekarze, vectorPielegniarki);
+			break;
+		case '9':
+			administrator->wyloguj();
+			zalogowany = administrator->getZalogowany();
+			cout << "WYLOGOWANO\n";
+			Sleep(300);
+			break;
+		default:
+			cout << "BRAK TAKIEJ OPCJI W MENU\n";
+			Sleep(300);
+			break;
+		}
+	}
 }
 void rejestracja()
 {
@@ -45,7 +178,8 @@ void logowanie(string login, string haslo)
 			if (vectorPacjenci[i]->zaloguj(login, haslo))
 			{
 				zalogowany = vectorPacjenci[i]->getZalogowany();
-				PacjentAction(login);
+				system("cls");
+				PacjentAction(vectorPacjenci[i], login);
 				break;
 			}
 		}
@@ -55,7 +189,8 @@ void logowanie(string login, string haslo)
 			if (vectorLekarze[i]->zaloguj(login, haslo))
 			{
 				zalogowany = vectorLekarze[i]->getZalogowany();
-				LekarzAction(login);
+				system("cls");
+				LekarzAction(vectorLekarze[i], login);
 				break;
 			}
 		}
@@ -65,20 +200,31 @@ void logowanie(string login, string haslo)
 			if (vectorPielegniarki[i]->zaloguj(login, haslo))
 			{
 				zalogowany = vectorPielegniarki[i]->getZalogowany();
-				pielegniarkaAction(login);
+				system("cls");
+				pielegniarkaAction(vectorPielegniarki[i], login);
 				break;
 			}
 		}
 	if (!zalogowany)
-		for (int i = 0; i < vectorAdministratorzy.size(); i++)
+		if (login == "admin" && haslo == "admin")
 		{
-			if (vectorAdministratorzy[i]->zaloguj(login, haslo))
-			{
-				zalogowany = vectorAdministratorzy[i]->getZalogowany();
-				administratorAction(login);
-				break;
-			}
+			Administrator* admin = new Administrator();
+			administratorAction(admin, login);
 		}
+			//for (int i = 0; i < vectorAdministratorzy.size(); i++)
+			//{
+			//	if (vectorAdministratorzy[i]->zaloguj(login, haslo))
+			//	{
+			//		zalogowany = vectorAdministratorzy[i]->getZalogowany();
+			//		system("cls");
+			//      administratorAction(admin, login);
+			//		break;
+			//	}
+			//}
+	if (!zalogowany) {
+		cout << "Bledne dane logowania\n";
+		Sleep(300);
+	}
 }
 
 int main()
@@ -87,25 +233,30 @@ int main()
 	{
 		string login, haslo;
 		cout << "MENU:\n1. Zaloguj sie\n2. Zarejestruj sie\n";
-		cin >> czynnosc;
-
+		czynnosc = getchar();
+		if (czynnosc == '\n')
+			czynnosc = getchar();
+		system("cls");
 
 		switch (czynnosc)
 		{
-		case 1:
+		case '1':
 			cout << "Podaj login: ";
 			cin >> login;
-			cout << "\n Podaj haslo: ";
+			cout << "\nPodaj haslo: ";
 			cin >> haslo;
 			logowanie(login, haslo);
 			break;
-		case 2:
+		case '2':
 			rejestracja();
 			break;
 		default:
 			cout << "BRAK TAKIEJ OPCJI W MENU\n";
+			Sleep(300);
 			break;
 		}
-	} while (1 == 1);
+		system("cls");
+
+	} while(1);
 	return 0;
 }
