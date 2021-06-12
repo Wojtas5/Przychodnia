@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 #include "Pacjent.h"
 #include "Termin.h"
 
@@ -7,6 +8,19 @@ int Pacjent::licznik_pacjentow = 0;
 Pacjent::Pacjent() : Uzytkownik()
 {
 	++(this->licznik_pacjentow);
+}
+
+vector<WynikWizyty*> Pacjent::getWyniki()
+{
+	return this->wyniki;
+}
+
+void Pacjent::wyswietlWyniki()
+{
+	for (int i = 0; i < this->wyniki.size(); ++i)
+	{
+		this->wyniki[i]->wyswietlWynik();
+	}
 }
 
 void Pacjent::rejestracja()
@@ -77,38 +91,53 @@ void Pacjent::zarezerwuj_termin(vector<Termin*> terminy)
 	if (0 != terminy.size())
 	{
 		int wybranyTermin = 0;
+		bool znalezionoWolnyTermin = false;
 
 		cout << "Dostepne terminy:" << endl;
 
 		for (int i = 0; i < terminy.size(); ++i)
 		{
-			cout << i << ". ";
-			terminy[i]->getData().wyswietl_czas();
-			cout << endl;
+			if (terminy[i]->getZarezerwowany() == false)
+			{
+				cout << i + 1 << ". ";
+				terminy[i]->getData()->wyswietl_czas();
+				cout << endl;
+				znalezionoWolnyTermin = true;
+			}
 		}
 
-		cout << "Wybierz termin: ";
-		while (1)
+		if (true == znalezionoWolnyTermin)
 		{
-			cin >> wybranyTermin;
+			cout << "Wybierz termin: ";
+			while (1)
+			{
+				cin >> wybranyTermin;
 
-			if (0 != wybranyTermin)
-			{
-				terminy[wybranyTermin]->setPacjent(this);
-				terminy[wybranyTermin]->setZarezerwowany(true);
-				cout << "Wybrano: ";
-				terminy[wybranyTermin]->getData().wyswietl_czas();
-				break;
+				if (0 != wybranyTermin && wybranyTermin <= terminy.size())
+				{
+					cout << "Wybrano: ";
+					terminy[wybranyTermin - 1]->getData()->wyswietl_czas();
+					terminy[wybranyTermin - 1]->setPacjent(this);
+					terminy[wybranyTermin - 1]->setZarezerwowany(true);
+					Sleep(500);
+					break;
+				}
+				else
+				{
+					cout << "Wybrano zly termin, sprobuj ponownie";
+				}
 			}
-			else
-			{
-				cout << "Wybrano zly termin, sprobuj ponownie";
-			}
+		}
+		else
+		{
+			cout << "Brak wolnych terminow" << endl;
+			Sleep(500);
 		}
 	}
 	else
 	{
 		cout << "Brak dostepnych wolnych terminow" << endl;
+		Sleep(500);
 	}
 }
 
@@ -117,41 +146,54 @@ void Pacjent::usun_rezerwacje(vector<Termin*> terminy)
 	if (0 != terminy.size())
 	{
 		int wybranyTermin = 0;
+		bool znalezionoTermin = false;
 
-		cout << "Terminy przypisane do tego pacjenta: " << endl;;
+		cout << "Terminy przypisane do tego pacjenta: " << endl;
 
 		for (int i = 0; i < terminy.size(); ++i)
 		{
-			if (&terminy[i]->getPacjent() == this)
+			if (terminy[i]->getPacjent() == this)
 			{
-				cout << i << ". ";
-				terminy[i]->getData().wyswietl_czas();
+				cout << i + 1 << ". ";
+				terminy[i]->getData()->wyswietl_czas();
 				cout << endl;
+				znalezionoTermin = true;
 			}
 		}
 
-		cout << "Wybierz termin ktory chcesz usunac: ";
-		while (1)
+		if (true == znalezionoTermin)
 		{
-			cin >> wybranyTermin;
+			cout << "Wybierz termin ktory chcesz usunac: ";
 
-			if (0 != wybranyTermin)
+			while (1)
 			{
-				terminy[wybranyTermin]->setZarezerwowany(false);
-				terminy[wybranyTermin]->setPotwierdzony(false);
+				cin >> wybranyTermin;
 
-				cout << "Usunieto rezerwacje z: ";
-				terminy[wybranyTermin]->getData().wyswietl_czas();
-				break;
+				if (0 != wybranyTermin && wybranyTermin <= terminy.size())
+				{
+					cout << "Usunieto rezerwacje z: ";
+					terminy[wybranyTermin - 1]->getData()->wyswietl_czas();
+					terminy[wybranyTermin - 1]->setZarezerwowany(false);
+					terminy[wybranyTermin - 1]->setPotwierdzony(false);
+					terminy[wybranyTermin - 1]->setPacjent(nullptr);
+					Sleep(500);
+					break;
+				}
+				else
+				{
+					cout << "Wybrano zly termin, sprobuj ponownie: ";
+				}
 			}
-			else
-			{
-				cout << "Wybrano zly termin, sprobuj ponownie";
-			}
+		}
+		else
+		{
+			cout << "Brak terminow przypisanych do tego pacjenta" << endl;
+			Sleep(500);
 		}
 	}
 	else
 	{
-		cout << "Brak dostepnych zarezerwowanych terminow terminow" << endl;
+		cout << "Brak terminow" << endl;
+		Sleep(500);
 	}
 }

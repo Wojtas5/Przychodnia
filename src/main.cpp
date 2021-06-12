@@ -14,15 +14,17 @@ vector<Lekarz*>vectorLekarze;
 vector<Pacjent*> vectorPacjenci;
 vector<Administrator*> vectorAdministratorzy;
 vector<Termin*> vectorTerminy;
-bool zalogowany = false;
 
-int czynnosc = 0;
+static bool zalogowany = false;
+static int czynnosc = 0;
 
+// TODO Przepatrzyc funkcje logowania i wylogowywania
+// i naprawic printowanie nadmiernej ilosci komunikatow
 void PacjentAction(Pacjent *pacjent,string login) 
 {
-	while (czynnosc != 9)
+	while (czynnosc != '9')
 	{
-		cout << "Menu pacjenta " << login << ":\n 1.Zarezerwuj termin\n2.Usun rezerwacje\n3.Wyswietl wyniki\n9. Wyloguj\n";
+		cout << "Menu pacjenta " << login << ":\n1.Zarezerwuj termin\n2.Usun rezerwacje\n3.Wyswietl wyniki\n9. Wyloguj\n";
 		czynnosc = getchar();
 		if (czynnosc == '\n')
 			czynnosc = getchar();
@@ -31,13 +33,13 @@ void PacjentAction(Pacjent *pacjent,string login)
 		switch (czynnosc)
 		{
 		case '1':
-			//pacjent->zarezerwuj_termin();
+			pacjent->zarezerwuj_termin(vectorTerminy);
 			break;
 		case '2':
-			//pacjent->usun_rezerwacje();
+			pacjent->usun_rezerwacje(vectorTerminy);
 			break;
 		case '3':
-			//	pacjent->wyswietl_wynik();
+			pacjent->wyswietlWyniki();
 			break;
 		case '9':
 			pacjent->wyloguj();
@@ -50,12 +52,13 @@ void PacjentAction(Pacjent *pacjent,string login)
 			Sleep(300);
 			break;
 		}
+
 		system("cls");
 	}
 }
 void LekarzAction(Lekarz *lekarz, string login) 
 {
-	while (czynnosc != 9)
+	while (czynnosc != '9')
 	{
 		cout << "Menu lekarza: " << login << "\n1.Potwierdz rezerwacje\n2.Dodaj wynik\n9. Wyloguj\n";
 		czynnosc = getchar();
@@ -66,10 +69,10 @@ void LekarzAction(Lekarz *lekarz, string login)
 		switch (czynnosc)
 		{
 		case '1':
-			//lekarz->potwierdz_rezerwacje();
+			lekarz->potwierdz_rezerwacje(vectorTerminy);
 			break;
 		case '2':
-			//lekarz->dodaj_wynik();
+			lekarz->dodaj_wynik(vectorTerminy);
 			break;
 		case '9':
 			lekarz->wyloguj();
@@ -87,7 +90,7 @@ void LekarzAction(Lekarz *lekarz, string login)
 }
 void pielegniarkaAction(Pielegniarka *pielegniarka, string login) 
 {
-	while (czynnosc !='9')
+	while (czynnosc != '9')
 	{
 		
 		cout << "Menu pielegniarki " << login << ":\n1.Usun pacjenta\n2.Dodaj termin\n9. Wyloguj\n";
@@ -173,6 +176,7 @@ void rejestracja()
 void logowanie(string login, string haslo)
 {
 	if (!zalogowany)
+	{
 		for (int i = 0; i < vectorPacjenci.size(); i++)
 		{
 			if (vectorPacjenci[i]->zaloguj(login, haslo))
@@ -183,7 +187,10 @@ void logowanie(string login, string haslo)
 				break;
 			}
 		}
+	}
+
 	if (!zalogowany)
+	{
 		for (int i = 0; i < vectorLekarze.size(); i++)
 		{
 			if (vectorLekarze[i]->zaloguj(login, haslo))
@@ -194,7 +201,10 @@ void logowanie(string login, string haslo)
 				break;
 			}
 		}
+	}
+
 	if (!zalogowany)
+	{
 		for (int i = 0; i < vectorPielegniarki.size(); i++)
 		{
 			if (vectorPielegniarki[i]->zaloguj(login, haslo))
@@ -205,23 +215,19 @@ void logowanie(string login, string haslo)
 				break;
 			}
 		}
+	}
+
 	if (!zalogowany)
+	{
 		if (login == "admin" && haslo == "admin")
 		{
 			Administrator* admin = new Administrator();
 			administratorAction(admin, login);
 		}
-			//for (int i = 0; i < vectorAdministratorzy.size(); i++)
-			//{
-			//	if (vectorAdministratorzy[i]->zaloguj(login, haslo))
-			//	{
-			//		zalogowany = vectorAdministratorzy[i]->getZalogowany();
-			//		system("cls");
-			//      administratorAction(admin, login);
-			//		break;
-			//	}
-			//}
-	if (!zalogowany) {
+	}
+
+	if (!zalogowany) 
+	{
 		cout << "Bledne dane logowania\n";
 		Sleep(300);
 	}
@@ -229,7 +235,7 @@ void logowanie(string login, string haslo)
 
 int main()
 {
-	do
+	while (1)
 	{
 		string login, haslo;
 		cout << "MENU:\n1. Zaloguj sie\n2. Zarejestruj sie\n";
@@ -255,8 +261,9 @@ int main()
 			Sleep(300);
 			break;
 		}
-		system("cls");
 
-	} while(1);
+		system("cls");
+	}
+
 	return 0;
 }
