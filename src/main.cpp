@@ -56,7 +56,7 @@ void PacjentAction(Pacjent *pacjent,string login)
 }
 void LekarzAction(Lekarz *lekarz, string login) 
 {
-	while (czynnosc != 9)
+	while (czynnosc != '9')
 	{
 		cout << "Menu lekarza: " << login << "\n1.Potwierdz rezerwacje\n2.Dodaj wynik\n9. Wyloguj\n";
 		czynnosc = getchar();
@@ -88,7 +88,7 @@ void LekarzAction(Lekarz *lekarz, string login)
 }
 void pielegniarkaAction(Pielegniarka *pielegniarka, string login) 
 {
-	while (czynnosc !='9')
+	while (czynnosc != '9')
 	{
 		
 		cout << "Menu pielegniarki " << login << ":\n1.Usun pacjenta\n2.Dodaj termin\n9. Wyloguj\n";
