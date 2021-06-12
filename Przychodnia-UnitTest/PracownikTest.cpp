@@ -1,8 +1,7 @@
 #include "pch.h"
-#include <string>
 #include "Pracownik.cpp"
 
-TEST(PracownikTest, LicznikPracownika)
+TEST(PracownikTest, GeneracjaIdPracownika)
 {
 	int id_pierwszego_pracownika = 1;
 	int id_ostatniego_pracownika = 10;
