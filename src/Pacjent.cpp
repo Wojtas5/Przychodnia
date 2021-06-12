@@ -10,6 +10,19 @@ Pacjent::Pacjent() : Uzytkownik()
 	++(this->licznik_pacjentow);
 }
 
+vector<WynikWizyty*> Pacjent::getWyniki()
+{
+	return this->wyniki;
+}
+
+void Pacjent::wyswietlWyniki()
+{
+	for (int i = 0; i < this->wyniki.size(); ++i)
+	{
+		this->wyniki[i]->wyswietlWynik();
+	}
+}
+
 void Pacjent::rejestracja()
 {
 	string temp;

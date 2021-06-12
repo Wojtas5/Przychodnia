@@ -14,10 +14,12 @@ vector<Lekarz*>vectorLekarze;
 vector<Pacjent*> vectorPacjenci;
 vector<Administrator*> vectorAdministratorzy;
 vector<Termin*> vectorTerminy;
+
 static bool zalogowany = false;
+static int czynnosc = 0;
 
-int czynnosc = 0;
-
+// TODO Przepatrzyc funkcje logowania i wylogowywania
+// i naprawic printowanie nadmiernej ilosci komunikatow
 void PacjentAction(Pacjent *pacjent,string login) 
 {
 	while (czynnosc != '9')
@@ -37,7 +39,7 @@ void PacjentAction(Pacjent *pacjent,string login)
 			pacjent->usun_rezerwacje(vectorTerminy);
 			break;
 		case '3':
-			//	pacjent->wyswietl_wynik();
+			pacjent->wyswietlWyniki();
 			break;
 		case '9':
 			pacjent->wyloguj();
@@ -70,7 +72,7 @@ void LekarzAction(Lekarz *lekarz, string login)
 			lekarz->potwierdz_rezerwacje(vectorTerminy);
 			break;
 		case '2':
-			//lekarz->dodaj_wynik();
+			lekarz->dodaj_wynik(vectorTerminy);
 			break;
 		case '9':
 			lekarz->wyloguj();
@@ -174,6 +176,7 @@ void rejestracja()
 void logowanie(string login, string haslo)
 {
 	if (!zalogowany)
+	{
 		for (int i = 0; i < vectorPacjenci.size(); i++)
 		{
 			if (vectorPacjenci[i]->zaloguj(login, haslo))
@@ -184,7 +187,10 @@ void logowanie(string login, string haslo)
 				break;
 			}
 		}
+	}
+
 	if (!zalogowany)
+	{
 		for (int i = 0; i < vectorLekarze.size(); i++)
 		{
 			if (vectorLekarze[i]->zaloguj(login, haslo))
@@ -195,7 +201,10 @@ void logowanie(string login, string haslo)
 				break;
 			}
 		}
+	}
+
 	if (!zalogowany)
+	{
 		for (int i = 0; i < vectorPielegniarki.size(); i++)
 		{
 			if (vectorPielegniarki[i]->zaloguj(login, haslo))
@@ -206,6 +215,8 @@ void logowanie(string login, string haslo)
 				break;
 			}
 		}
+	}
+
 	if (!zalogowany)
 	{
 		if (login == "admin" && haslo == "admin")

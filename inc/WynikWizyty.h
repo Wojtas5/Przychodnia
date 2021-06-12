@@ -9,13 +9,21 @@ using namespace std;
 class WynikWizyty
 {
 private:
-	Date data;
+	Date *data;
 	string przebieg_wizyty;
 	string zalecenia;
 	string skierowania;
 
 public:
 	void wyswietlWynik();
+
+	void setData(Date *data);
+
+	void setPrzebieg_wizyty(string przebieg);
+
+	void setZalecenia(string zalecenia);
+
+	void setSkierowania(string skierowania);
 };
 
 #endif

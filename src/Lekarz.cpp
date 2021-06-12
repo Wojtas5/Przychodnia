@@ -73,10 +73,82 @@ bool Lekarz::potwierdz_rezerwacje(vector<Termin*> terminy)
 	return false;
 }
 
-void Lekarz::dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania)
+void Lekarz::dodaj_wynik(vector<Termin*>& terminy)
 {
-	// TODO - implement Lekarz::dodaj_wynik
-	throw "Not yet implemented";
+	if (0 != terminy.size())
+	{
+		bool znalezionoTermin = false;
+
+		cout << "Wybierz termin z ktorego chcesz utworzyc wynik: " << endl;
+
+		for (int i = 0; i < terminy.size(); i++)
+		{
+			if (terminy[i]->getLekarz() == this)
+			{
+				cout << i + 1 << ". ";
+				terminy[i]->getData()->wyswietl_czas();
+				cout << endl;
+				znalezionoTermin = true;
+			}
+		}
+
+		if (true == znalezionoTermin)
+		{
+			int wybranyTermin = 0;
+
+			cout << "Wybrany termin: ";
+			while (1)
+			{
+				cin >> wybranyTermin;
+
+				if (0 != wybranyTermin && wybranyTermin <= terminy.size())
+				{
+					cout << "Wybrano: ";
+					terminy[wybranyTermin - 1]->getData()->wyswietl_czas();
+
+					string temp = "";
+					WynikWizyty* wynik = new WynikWizyty;
+					wynik->setData(terminy[wybranyTermin - 1]->getData());
+
+					cout << "Opisz przebieg wizyty: ";
+					cin >> temp;
+					cout << endl;
+					wynik->setPrzebieg_wizyty(temp);
+
+					cout << "Wypisz zalecenie: ";
+					cin >> temp;
+					cout << endl;
+					wynik->setZalecenia(temp);
+
+					cout << "Wypisz skierowania: ";
+					cin >> temp;
+					cout << endl;
+					wynik->setSkierowania(temp);
+
+					// TODO W tym miejscu dostajemy exception: read access violation - do naprawy
+					terminy[wybranyTermin - 1]->getPacjent()->getWyniki().push_back(wynik);
+
+					cout << "Poprawnie utworzono wynik wizyty" << endl;
+					Sleep(500);
+					break;
+				}
+				else
+				{
+					cout << "Wybrano zly termin, sprobuj ponownie";
+				}
+			}
+		}
+		else
+		{
+			cout << "Brak wolnych terminow" << endl;
+			Sleep(500);
+		}
+	}
+	else
+	{
+		cout << "Brak terminow" << endl;
+		Sleep(500);
+	}
 }
 
 bool Lekarz::czy_wolne(Date data, vector<Termin*>& terminy)
