@@ -16,7 +16,6 @@ private:
 	void setZarejestrowany();
 	void wygenerujNumer_pacjenta();
 
-
 public:
 	Pacjent::Pacjent();
 

@@ -14,7 +14,7 @@ vector<Lekarz*>vectorLekarze;
 vector<Pacjent*> vectorPacjenci;
 vector<Administrator*> vectorAdministratorzy;
 vector<Termin*> vectorTerminy;
-bool zalogowany = false;
+static bool zalogowany = false;
 
 int czynnosc = 0;
 
@@ -22,7 +22,7 @@ void PacjentAction(Pacjent *pacjent,string login)
 {
 	while (czynnosc != 9)
 	{
-		cout << "Menu pacjenta " << login << ":\n 1.Zarezerwuj termin\n2.Usun rezerwacje\n3.Wyswietl wyniki\n9. Wyloguj\n";
+		cout << "Menu pacjenta " << login << ":\n1.Zarezerwuj termin\n2.Usun rezerwacje\n3.Wyswietl wyniki\n9. Wyloguj\n";
 		czynnosc = getchar();
 		if (czynnosc == '\n')
 			czynnosc = getchar();
@@ -31,10 +31,10 @@ void PacjentAction(Pacjent *pacjent,string login)
 		switch (czynnosc)
 		{
 		case '1':
-			//pacjent->zarezerwuj_termin();
+			pacjent->zarezerwuj_termin(vectorTerminy);
 			break;
 		case '2':
-			//pacjent->usun_rezerwacje();
+			pacjent->usun_rezerwacje(vectorTerminy);
 			break;
 		case '3':
 			//	pacjent->wyswietl_wynik();
@@ -258,5 +258,6 @@ int main()
 		system("cls");
 
 	} while(1);
+
 	return 0;
 }

@@ -9,15 +9,16 @@ typedef enum
 {
 	BADANIE,
 	OPERACJA,
-	KONSULTACJA
+	KONSULTACJA,
+	BRAK
 } Typ_wizyty;
 
 class Termin
 {
 private:
-	Lekarz lekarz;
-	Pacjent pacjent;
-	Date data;
+	Lekarz *lekarz;
+	Pacjent *pacjent;
+	Date *data;
 
 	int koszt;
 	Typ_wizyty typ_wizyty;
@@ -25,15 +26,25 @@ private:
 	bool potwierdzony;
 
 public:
-	Termin();
+	Termin()
+	{
+		this->data = nullptr;
+		this->koszt = 0;
+		this->typ_wizyty = BRAK;
+		this->zarezerwowany = false;
+		this->potwierdzony = false;
+	}
 
-	void setData(Date data);
+	void setData(Date *data);
 
-	Date getData();
+	Date *getData()
+	{
+		return this->data;
+	}
 
 	void setPacjent(Pacjent *pacjent);
 
-	Pacjent getPacjent();
+	Pacjent *getPacjent();
 
 	void setKoszt(int koszt);
 
@@ -47,7 +58,7 @@ public:
 
 	bool getPotwierdzony();
 
-	void setLekarz(Lekarz lekarz);
+	void setLekarz(Lekarz *lekarz);
 };
 
 #endif
