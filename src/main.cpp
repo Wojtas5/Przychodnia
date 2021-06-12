@@ -1,11 +1,11 @@
 #include <iostream>
+#include <vector>
+#include <cstdio>
+#include <windows.h>
 #include "Pacjent.h"
 #include "Pielegniarka.h"
 #include "Lekarz.h"
 #include "Administrator.h"
-#include <vector>
-#include <cstdio>
-#include<windows.h>
 
 using namespace std;
 

@@ -31,6 +31,8 @@ public:
 
 	Date getData();
 
+	void setPacjent(Pacjent *pacjent);
+
 	void setKoszt(int koszt);
 
 	void setTyp_wizyty(Typ_wizyty typ);

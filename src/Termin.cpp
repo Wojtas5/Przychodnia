@@ -15,6 +15,11 @@ Date Termin::getData()
 	return this->data;
 }
 
+void Termin::setPacjent(Pacjent* pacjent)
+{
+	this->pacjent = *pacjent;
+}
+
 void Termin::setKoszt(int koszt)
 {
 	this->koszt = koszt;

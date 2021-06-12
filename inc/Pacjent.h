@@ -1,6 +1,7 @@
 #ifndef PACJENT_H
 #define PACJENT_H
 
+#include <vector>
 #include "Uzytkownik.h"
 
 class Termin;
@@ -25,7 +26,7 @@ public:
 
 	bool getZarejestrowany();
 
-	void zarezerwuj_termin(Termin termin);
+	void zarezerwuj_termin(vector<Termin*> terminy);
 
 	void usun_rezerwacje(Termin termin);
 };
