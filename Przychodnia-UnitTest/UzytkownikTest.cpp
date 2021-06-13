@@ -2,7 +2,7 @@
 #include <string>
 #include "Uzytkownik.cpp"
 
-TEST(UzytkownikTest, PoprawneLogowanie) 
+TEST(UzytkownikTest, test_poprawne_logowanie) 
 {
 	string poprawny_login = "DobryLogin";
 	string poprawne_haslo = "DobreHaslo";
@@ -16,7 +16,7 @@ TEST(UzytkownikTest, PoprawneLogowanie)
 	EXPECT_TRUE(poprawne_zalogowanie);
 }
 
-TEST(UzytkownikTest, NiepoprawnyLogin)
+TEST(UzytkownikTest, test_logowanie_zly_login)
 {
 	string poprawny_login = "DobryLogin";
 	string niepoprawny_login = "ZlyLogin";
@@ -31,7 +31,7 @@ TEST(UzytkownikTest, NiepoprawnyLogin)
 	EXPECT_FALSE(niepoprawne_zalogowanie);
 }
 
-TEST(UzytkownikTest, NiepoprawneHaslo)
+TEST(UzytkownikTest, test_logowanie_zle_haslo)
 {
 	string poprawny_login = "DobryLogin";
 	string poprawne_haslo = "DobreHaslo";
@@ -46,7 +46,7 @@ TEST(UzytkownikTest, NiepoprawneHaslo)
 	EXPECT_FALSE(niepoprawne_zalogowanie);
 }
 
-TEST(UzytkownikTest, WylogowanieZalogowanego)
+TEST(UzytkownikTest, test_poprawne_wylogowanie)
 {
 	bool zalogowanie = false;
 
@@ -60,7 +60,7 @@ TEST(UzytkownikTest, WylogowanieZalogowanego)
 	EXPECT_TRUE(zalogowanie);
 }
 
-TEST(UzytkownikTest, WylogowanieNiezalogowanego)
+TEST(UzytkownikTest, test_bledne_wylogowanie)
 {
 	bool zalogowanie = false;
 

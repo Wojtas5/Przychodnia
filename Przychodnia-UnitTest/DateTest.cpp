@@ -1,14 +1,14 @@
 #include "pch.h"
 #include "Date.cpp"
 
-TEST(DateTest, tworzenie_obiektu)
+TEST(DateTest, test_tworzenie_obiektu)
 {
 	Date data(2021, 6, 13, 1, 0);
 
 	EXPECT_NE(&data, nullptr);
 }
 
-TEST(DateTest, operator_porownania)
+TEST(DateTest, test_operator_porownania)
 {
 	Date data_1(2021, 6, 13, 1, 0);
 	Date data_2(2021, 6, 13, 1, 0);
