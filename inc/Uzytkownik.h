@@ -41,6 +41,8 @@ public:
 	void setNumer_telefonu(string numer);
 
 	bool getZalogowany();
+
+	string getLogin();
 };
 
 #endif

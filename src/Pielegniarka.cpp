@@ -39,7 +39,6 @@ void Pielegniarka::dodaj_wolny_termin(vector<Termin*>& terminy, vector<Lekarz*>&
 
 		for (int i = 0; i < lekarze.size(); i++)
 		{
-			// TODO Bug: Jak uda sie znalesc lekarza to freezuje konsole az podamy kolejny znak
 			if (lekarze[i]->getSpecjalizacja() == static_cast<Spec>(tempInt) &&
 				lekarze[i]->czy_wolne(*tempData, terminy) == true)
 			{
@@ -62,6 +61,7 @@ void Pielegniarka::dodaj_wolny_termin(vector<Termin*>& terminy, vector<Lekarz*>&
 		}
 		
 		// Ustaw koszt
+		cout << "Podaj koszt wizyty" << endl;
 		cin >> tempInt;
 		termin->setKoszt(tempInt);
 
