@@ -166,7 +166,7 @@ void Pacjent::usun_rezerwacje(vector<Termin*> terminy)
 		{
 			cout << "Wybierz termin ktory chcesz usunac: ";
 
-			while (1)
+			while (true)
 			{
 				cin >> wybranyTermin;
 

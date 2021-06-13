@@ -32,8 +32,6 @@ public:
 
 	void dodaj_wynik(vector<Termin*>& terminy);
 
-	//void dodaj_wynik(Date data, string przebieg, string zalecenia, string skierowania);
-
 	bool czy_wolne(Date data, vector<Termin*>& terminy);
 };
 
