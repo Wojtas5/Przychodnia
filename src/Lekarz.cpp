@@ -126,9 +126,16 @@ void Lekarz::dodaj_wynik(vector<Termin*>& terminy)
 					wynik->setSkierowania(temp);
 
 					// TODO W tym miejscu dostajemy exception: read access violation - do naprawy
-					terminy[wybranyTermin - 1]->getPacjent()->getWyniki().push_back(wynik);
-
-					cout << "Poprawnie utworzono wynik wizyty" << endl;
+					Pacjent *pacjent = terminy[wybranyTermin - 1]->getPacjent();
+					if (pacjent != nullptr)
+					{
+						pacjent->wyniki.push_back(wynik);
+						cout << "Poprawnie utworzono wynik wizyty" << endl;
+					}
+					else
+					{
+						cout << "Zwrocono nullptr";
+					}
 					Sleep(500);
 					break;
 				}

@@ -10,7 +10,6 @@ class Termin;
 class Pacjent : public Uzytkownik
 {
 private:
-	vector<WynikWizyty*> wyniki;
 
 	int numer_pacjenta;
 	static int licznik_pacjentow;
@@ -20,7 +19,8 @@ private:
 	void wygenerujNumer_pacjenta();
 
 public:
-	Pacjent::Pacjent();
+	Pacjent();
+	vector<WynikWizyty*> wyniki;
 
 	vector<WynikWizyty*> getWyniki();
 
