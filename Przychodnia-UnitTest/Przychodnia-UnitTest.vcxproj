@@ -42,7 +42,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AdministratorTest.cpp" />
+    <ClCompile Include="DateTest.cpp" />
     <ClCompile Include="TerminTest.cpp" />
     <ClCompile Include="UzytkownikTest.cpp" />
     <ClCompile Include="pch.cpp">
